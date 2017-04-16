@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .border{
+            border: 1px solid #ccc;
+        }
+        .bg-color{
+            background-color: #78c4fa;
+        }
+        .mt-32{
+            margin-top: 32px;
+        }
+    </style>
+
+    <style>
+        /**table方式  start**/
+        .center-table{
+            display: table;
+            width: 200px;
+            height: 200px;
+        }
+        .center-table-content{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        /**table方式  end**/
+
+
+        /**position方式  start**/
+        .center-position{
+            position: relative;
+            height: 200px;
+            width: 200px;
+        }
+        .center-position-content{
+            position: absolute;
+            height: 100px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        /**position方式  end**/
+
+
+        /**padding方式  start**/
+        .center-padding{
+            position: relative;
+            height: 200px;
+            width: 200px;
+            padding: calc((200px - 100px)/2) 0;
+        }
+        .center-padding-content{
+            position: relative;
+            height: 100px;
+        }
+        /**padding方式  end**/
+
+
+        /**margin方式  start**/
+        .center-margin{
+            position: relative;
+            height: 200px;
+            width: 200px;
+        }
+        .center-margin-content{
+            position: relative;
+            height: 100px;
+            margin: calc((200px - 100px)/2) 0;
+        }
+        /**margin方式  end**/
+    </style>
+</head>
+<body>
+    <h3>table方式</h3>
+    <div class="center-table border">
+        <div class="center-table-content bg-color">
+            适用场景:
+            <br>
+            父容器高度已知
+            <br>
+            居中内容高度未知
+        </div>
+    </div>
+
+    <h3 class="mt-32">position方式</h3>
+    <div class="center-position border">
+        <div class="center-position-content bg-color">
+            适用场景:
+            <br>
+            父容器高度已知
+            <br>
+            子容器高度已知
+        </div>
+    </div>
+
+    <h3 class="mt-32">padding方式</h3>
+    <div class="center-padding border">
+        <div class="center-padding-content bg-color">
+            适用场景:
+            <br>
+            父容器高度已知
+            <br>
+            子容器高度已知
+        </div>
+    </div>
+
+    <h3 class="mt-32">margin方式</h3>
+    <div class="center-margin border">
+        <div class="center-margin-content bg-color">
+            适用场景:
+            <br>
+            父容器高度已知
+            <br>
+            子容器高度已知
+        </div>
+    </div>
+</body>
+
+<script src="../../src/js/jquery-2.1.1.min.js"></script>
+<script src="../../src/js/utils.js"></script>
+
+<script>
+    setContainerMinHeight($('article'), [$('header'), $('footer')]);
+</script>
+</html>

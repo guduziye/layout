@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        img{
+            width: 200px;
+        }
+        .clear:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .botton{
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+    <style>
+        /**奇偶行颜色交替  start**/
+        ul > li:nth-of-type(odd){background:#00CCFF;}/*奇数行*/
+        ul > li:nth-of-type(even){background:#FFCC00;}/*偶数行*/
+        /**奇偶行颜色交替  end**/
+
+        /**毛玻璃效果 start**/
+        .frosted-glass{
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+            filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=false); /* IE6~IE9 */
+        }
+        /**毛玻璃效果 end**/
+
+
+        /**svg斜线 start**/
+        .slant{
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><line x1="0" y1="0" x2="100%" y2="100%" stroke="black" stroke-width="1"/></svg>');
+        }
+        /**svg斜线 end**/
+
+
+        /**虚线边框 start**/
+        .marching-ants {
+            border: 1px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+            repeating-linear-gradient(-45deg, #cb3125 0, #cb3125 25%, white 0, white 50%) 0 / 12px 12px;
+            animation: marching-ants-animate 30s linear infinite;
+        }
+        @keyframes marching-ants-animate {
+            to {
+                background-position: 100%
+            }
+        }
+        /**虚线边框 end**/
+    </style>
+</head>
+<body>
+<h3>奇偶行颜色交替</h3>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+
+
+<h3>毛玻璃效果</h3>
+<div class="clear">
+    <div style="float: left;margin-right: 48px;">
+        <div>原图</div>
+        <img src="../../src/images/火影.jpg">
+    </div>
+
+    <div style="float: left;">
+        <div>毛玻璃效果</div>
+        <img class="frosted-glass" src="../../src/images/火影.jpg">
+    </div>
+</div>
+
+
+<h3>去掉inline-block的默认间距</h3>
+<div class="clear">
+    <div style="float: left;margin-right: 48px;">
+        <div>inline-block带有默认间距的</div>
+        <div>
+            <botton class="botton">1</botton>
+            <botton class="botton">2</botton>
+            <botton class="botton">3</botton>
+            <botton class="botton">4</botton>
+        </div>
+    </div>
+
+    <div style="float: left;">
+        <div>去掉inline-block带有默认间距,在父元素上设置font-size:0即可,但内容要设置字体大小</div>
+        <div style="font-size: 0;">
+            <botton class="botton">1</botton>
+            <botton class="botton">2</botton>
+            <botton class="botton">3</botton>
+            <botton class="botton">4</botton>
+        </div>
+    </div>
+</div>
+
+
+<h3>画斜线</h3>
+<div class="slant" style="width: 200px;height: 100px;border:1px solid #ccc;"></div>
+
+<h3>虚线边框</h3>
+<div class="marching-ants" style="width: 200px;height: 100px;"></div>
+
+
+</body>
+
+</html>

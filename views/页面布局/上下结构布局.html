@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .page-header{
+            height: 60px;
+            background-color: #78c4fa;
+        }
+
+        .page-container{
+            background-color: #86ffd0;
+        }
+
+        .page-footer{
+            height: 32px;
+            background-color: #ffcdb9;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">页头</header>
+    <article class="page-container">
+        通过js设置内容的最小高度
+        <br>
+        为了使页脚在内容不足以撑出滚动条的时候,能使页脚始终处于页面最下面
+    </article>
+    <footer class="page-footer">页脚</footer>
+</body>
+
+<script src="../../src/js/jquery-2.1.1.min.js"></script>
+<script src="../../src/js/utils.js"></script>
+
+<script>
+    setContainerMinHeight($('article'), [$('header'), $('footer')]);
+</script>
+</html>

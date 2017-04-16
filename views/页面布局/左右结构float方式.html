@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .page-header{
+            height: 60px;
+            background-color: #78c4fa;
+        }
+
+        .page-container{
+            position: relative;
+            background-color: #86ffd0;
+        }
+
+        .content-left{
+            float: left;
+            width: 300px;
+            background-color: #a18fff;
+        }
+
+        .content-right{
+            float: left;
+            width: calc(100% - 300px);
+            background-color: #ff925f;
+        }
+
+        .page-footer{
+            height: 32px;
+            background-color: #ffcdb9;
+        }
+
+        .clear:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<header class="page-header">页头</header>
+<article class="page-container clear">
+    <nav class="content-left">
+        左侧栏
+    </nav>
+    <section class="content-right">
+        右侧内容栏
+        <br>
+        <br>
+        该页面使用的是float方式布局
+        <br>
+        使用该布局的缺陷是左右两侧容器的高度是按照各自容器的内容高度进行自适应
+        <br>
+        当需要进行分栏显示时,会出现错层现象
+    </section>
+</article>
+<footer class="page-footer">页脚</footer>
+</body>
+
+<script src="../../src/js/jquery-2.1.1.min.js"></script>
+<script src="../../src/js/utils.js"></script>
+
+<script>
+    setContainerMinHeight($('article'), [$('header'), $('footer')]);
+</script>
+</html>

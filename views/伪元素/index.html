@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-color {
+            background-color: #78c4fa;
+        }
+
+    </style>
+
+    <style>
+        /**角标  start**/
+        .superscript {
+            position: relative;
+            width: 200px;
+            height: 100px;
+        }
+
+        .superscript:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 16px solid red;
+            border-right: 16px solid transparent;
+        }
+
+        /**角标  end**/
+
+        /**时间轴  start**/
+        .timeLine {
+            position: relative;
+        }
+
+        .timeLine > .timeLine-row:first-child > .timeLine-index:before {
+            display: none;
+        }
+
+        .timeLine > .timeLine-row:last-child > .timeLine-index:after {
+            display: none;
+        }
+
+        .timeLine-row {
+            position: relative;
+            display: table;
+            width: 100%;
+            padding-bottom: 16px;
+        }
+
+        .timeLine-index,
+        .timeLine-content {
+            position: relative;
+            display: table-cell;
+        }
+
+        .timeLine-index {
+            width: 24px;
+            vertical-align: middle;
+        }
+
+        .timeLine-index > div {
+            position: absolute;
+            top: calc(50% - 12px);
+            width: 24px;
+            height: 24px;
+            line-height: 22px;
+            text-align: center;
+            border: 1px solid #d8dcf0;
+            border-radius: 100%;
+            background-color: #fff;
+            z-index: 10;
+        }
+
+        .timeLine-index:before,
+        .timeLine-index:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: calc(50% + 16px);
+            background-color: #d8dcf0;
+        }
+
+        .timeLine-index:before {
+            top: -16px;
+        }
+
+        .timeLine-index:after {
+            bottom: -16px;
+        }
+
+        .timeLine-content {
+            width: calc(100% - 24px);
+            vertical-align: top;
+            padding-left: 16px;
+        }
+        /**时间轴  end**/
+
+
+        .checkbox{
+            position: relative;
+        }
+        .checkbox > label{
+            position: relative;
+        }
+        .checkbox > label > i{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .checkbox input[type=checkbox]{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: 0;
+            z-index: 2;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            margin-top: 0;
+        }
+        .checkbox .choice-helper:before,
+        .checkbox .choice-helper:after{
+            -webkit-transition: all;
+            -o-transition: all;
+            transition: all;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            content: "";
+            z-index: 1;
+        }
+        .checkbox .choice-helper:before{
+            left: 0;
+            border: 1px solid #bbbbbb;
+            background-color: #ffffff;
+        }
+        .checkbox:hover .choice-helper:before{
+            border-color: #60be29;
+        }
+        .checkbox:hover label.disabled .choice-helper:before{
+            border-color: #bbbbbb;
+        }
+        .checkbox label {
+            padding-left: 24px;
+            padding-right: 12px;
+            padding-top: 0;
+            padding-bottom: 0;
+            font-weight: normal;
+        }
+        .checkbox input[type=checkbox] {
+            width: 16px;
+            height: 16px;
+        }
+        .checkbox input[type=checkbox]:checked + .choice-helper:before {
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            transform: scale(0);
+        }
+        .checkbox input[type=checkbox]:checked + .choice-helper:after {
+            -webkit-transform: scale(1) rotate(-50deg);
+            -ms-transform: scale(1) rotate(-50deg);
+            -o-transform: scale(1) rotate(-50deg);
+            transform: scale(1) rotate(-50deg);
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        .checkbox .choice-helper:before {
+            top: 2px;
+            width: 16px;
+            height: 16px;
+        }
+        .checkbox .choice-helper:after {
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-transform: scale(0) rotate(80deg);
+            -ms-transform: scale(0) rotate(80deg);
+            -o-transform: scale(0) rotate(80deg);
+            transform: scale(0) rotate(80deg);
+            width: 16px;
+            height: 8px;
+            border-bottom: 2px solid #60be29;
+            border-left: 2px solid #60be29;
+            border-bottom-left-radius: 2px;
+            left: -1px;
+            top: 4px;
+        }
+    </style>
+</head>
+<body>
+<h3>角标</h3>
+<div class="superscript bg-color"></div>
+
+<h3>时间轴</h3>
+<div class="timeLine">
+    <div class="timeLine-row">
+        <div class="timeLine-index">
+            <div>1</div>
+        </div>
+        <div class="timeLine-content">
+            <div>第一条数据</div>
+        </div>
+    </div>
+    <div class="timeLine-row ">
+        <div class="timeLine-index">
+            <div>2</div>
+        </div>
+        <div class="timeLine-content">
+            <div>第二条数据</div>
+        </div>
+    </div>
+    <div class="timeLine-row ">
+        <div class="timeLine-index">
+            <div>3</div>
+        </div>
+        <div class="timeLine-content">
+            <div>第三条数据</div>
+        </div>
+    </div>
+</div>
+
+<h3>仿复选框</h3>
+<div class="checkbox">
+    <label>
+        <input type="checkbox" value="">
+        <i class="choice-helper"></i>
+        复选框
+    </label>
+</div>
+
+</body>
+
+</html>

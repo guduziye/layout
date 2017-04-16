@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        .page-header{
+            height: 60px;
+            background-color: #78c4fa;
+        }
+
+        .page-container{
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 60px - 32px);
+            background-color: #86ffd0;
+        }
+
+        .content-left{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #a18fff;
+        }
+
+        .content-right{
+            position: absolute;
+            left: 300px;
+            top: 0;
+            width: calc(100% - 300px);
+            height: 100%;
+            background-color: #ff925f;
+        }
+
+        .page-footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 32px;
+            background-color: #ffcdb9;
+        }
+
+        .clear:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<header class="page-header">页头</header>
+<article class="page-container clear">
+    <nav class="content-left">
+        左侧栏
+    </nav>
+    <section class="content-right">
+        右侧内容栏
+        <br>
+        <br>
+        该页面使用的是position: absolute;方式布局
+        <br>
+        内容的父容器是position: absolute;定位,使用calc进行高度动态计算
+        <br>
+        左右栏的定位也是position: absolute;高度都设置为100%
+        <br>
+        适应场景是页头和页脚始终显示,当内容过高时只在左右栏出现滚动条
+    </section>
+</article>
+<footer class="page-footer">页脚</footer>
+</body>
+
+</html>
